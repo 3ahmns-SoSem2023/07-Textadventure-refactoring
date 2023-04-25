@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,6 +30,9 @@ public class AdventureGame : MonoBehaviour
     private bool infoOn;
     private string overrideText;
     private int statesUntilRescue;
+
+    private string notification = "Notification: ";
+    private string info = "Collect.Info";
 
 
     State actualState;
@@ -131,7 +130,7 @@ public class AdventureGame : MonoBehaviour
 
         }
 
-        if (nextState.name == "Info.Alarm")
+        if (nextState.name == info+".Alarm")
         {
             ResetCounters();
             Debug.Log("Counters Reseted + " + passedStatesCount + " " + collectedWoolCount + " " + dehydrationCount);
@@ -158,22 +157,22 @@ public class AdventureGame : MonoBehaviour
 
         }
 
-        if (nextState.name == "Info.Done" || nextState.name == "Collect.Info")
+        if (nextState.name == info+".Done" || nextState.name == "Collect."+info)
         {
             SetupInfoUI();
             overrideTextComponent = false;
         }
 
-        if (currentState.name == "Info.Human" && nextState.name == "Info.Done")
+        if (currentState.name == info+".Human" && nextState.name == info+".Done")
         {
             overrideTextComponent = true;
-            overrideText = "Notification: Crime scene investigation revealed that robots destroyed all water inventories and water sponge warehouses. " + "\n \n" +
-                           "Notification: All proper working service robots have to ensure that their godhumans stay alive and do not dry out." + "\n \n" +
-                           "Notification: Collect wool and knit water sponges which are able to make water out of air. ";
+            overrideText = notification+"Crime scene investigation revealed that robots destroyed all water inventories and water sponge warehouses. " + "\n \n" +
+                           notification + "All proper working service robots have to ensure that their godhumans stay alive and do not dry out." + "\n \n" +
+                           notification + "Collect wool and knit water sponges which are able to make water out of air. ";
 
         }
 
-        if (currentState.name == "Info.Accident" && nextState.name == "Info.Done")
+        if (currentState.name == info+".Accident" && nextState.name == info+".Done")
         {
             overrideTextComponent = true;
             overrideText = "Magda is a 21 year old woman. She loves salty food and is doing a lot of sports." + "\n" +
@@ -183,12 +182,12 @@ public class AdventureGame : MonoBehaviour
 
         }
 
-        if (currentState.name == "Info.Done" && nextState.name == "Collect")
+        if (currentState.name == info+".Done" && nextState.name == "Collect")
         {
             overrideTextComponent = false;
         }
 
-        if ((currentState.name == "Collect.Info" || currentState.name == "Collect.Do") && nextState.name == "Collect.Do")
+        if ((currentState.name == "Collect."+info || currentState.name == "Collect.Do") && nextState.name == "Collect.Do")
         {
             int nbrWool = RandomState.getrandom.Next(1, 3);
             collectedWoolCount += nbrWool;
@@ -198,7 +197,7 @@ public class AdventureGame : MonoBehaviour
         }
 
 
-        if ((currentState.name == "Knit.Info" || nextState.name == "Knit.Do") && nextState.name == "Knit.Do")
+        if ((currentState.name == "Knit."+info || nextState.name == "Knit.Do") && nextState.name == "Knit.Do")
         {
             if (collectedWoolCount >= 2)
             {
@@ -218,12 +217,12 @@ public class AdventureGame : MonoBehaviour
             return nextState;
         }
 
-        if (currentState.name == "Knit.Do" && currentState.name == "Collect.Info")
+        if (currentState.name == "Knit.Do" && currentState.name == "Collect."+info)
         {
             overrideTextComponent = false;
         }
 
-        if (currentState.name == "Fight.Do" && (nextState.name == "Collect.Info" || nextState.name == "Fight.Do"))
+        if (currentState.name == "Fight.Do" && (nextState.name == "Collect."+info || nextState.name == "Fight.Do"))
         {
 
             Debug.Log("wool before Fight in kg: " + collectedWoolCount);

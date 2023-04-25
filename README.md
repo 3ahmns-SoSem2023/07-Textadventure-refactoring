@@ -1,4 +1,4 @@
-# 99-Textadventure-refactoring
+# 07-Textadventure-refactoring
 This is a school project a textadventure game to learn refactoring. 
 
 + **What is the game theme?**  Si Fi scenario with robots. 
@@ -24,6 +24,6 @@ produce laser weapons on the basis of acron.
 + Inspired by a Udemy course [Complete C# Unity Developer 2D - Learn to Code Making Games](https://www.udemy.com/unitycourse/)
 
 **Code Smells**:
-+ Dead Code
++ Dead Code --> das AdventuregameOld Script???
 + Magical Value
-+ Magical String
++ Magical String --> einige im AdventureGame Script gefunden (glaub ich zumindest)

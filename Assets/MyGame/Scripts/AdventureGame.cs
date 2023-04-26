@@ -32,7 +32,7 @@ public class AdventureGame : MonoBehaviour
     private string notification = "Notification: ";
     private string info = "Info";
     private string dO = "Do";
-
+    private const string knitDo = "Knit.Do";
 
     State actualState;
 
@@ -143,7 +143,7 @@ public class AdventureGame : MonoBehaviour
 
         if (currentState.name == nextState.name)
         {
-            if (nextState.name == "Knit."+dO || nextState.name == "Fight.Attack" || nextState.name == "Collect.Do")
+            if (nextState.name == knitDo || nextState.name == "Fight.Attack" || nextState.name == "Collect."+dO)
             {
                 wait = false;
                 overrideText = "reset in do|attack";

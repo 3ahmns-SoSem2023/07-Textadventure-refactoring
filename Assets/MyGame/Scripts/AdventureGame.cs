@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor;
+
 
 public class AdventureGame : MonoBehaviour
 {
@@ -33,6 +31,7 @@ public class AdventureGame : MonoBehaviour
 
     private string notification = "Notification: ";
     private string info = "Info";
+    private string dO = "Do";
 
 
     State actualState;
@@ -144,7 +143,7 @@ public class AdventureGame : MonoBehaviour
 
         if (currentState.name == nextState.name)
         {
-            if (nextState.name == "Knit.Do" || nextState.name == "Fight.Attack" || nextState.name == "Collect.Do")
+            if (nextState.name == "Knit."+dO || nextState.name == "Fight.Attack" || nextState.name == "Collect.Do")
             {
                 wait = false;
                 overrideText = "reset in do|attack";
@@ -187,7 +186,7 @@ public class AdventureGame : MonoBehaviour
             overrideTextComponent = false;
         }
 
-        if ((currentState.name == "Collect."+info || currentState.name == "Collect.Do") && nextState.name == "Collect.Do")
+        if ((currentState.name == "Collect."+info || currentState.name == "Collect."+dO) && nextState.name == "Collect.Do")
         {
             int nbrWool = RandomState.getrandom.Next(1, 3);
             collectedWoolCount += nbrWool;
@@ -197,7 +196,7 @@ public class AdventureGame : MonoBehaviour
         }
 
 
-        if ((currentState.name == "Knit."+info || nextState.name == "Knit.Do") && nextState.name == "Knit.Do")
+        if ((currentState.name == "Knit."+info || nextState.name == "Knit."+dO) && nextState.name == "Knit.Do")
         {
             if (collectedWoolCount >= 2)
             {
@@ -222,7 +221,7 @@ public class AdventureGame : MonoBehaviour
             overrideTextComponent = false;
         }
 
-        if (currentState.name == "Fight.Do" && (nextState.name == "Collect."+info || nextState.name == "Fight.Do"))
+        if (currentState.name == "Fight."+dO && (nextState.name == "Collect."+info || nextState.name == "Fight.Do"))
         {
 
             Debug.Log("wool before Fight in kg: " + collectedWoolCount);

@@ -24,6 +24,6 @@ produce laser weapons on the basis of acron.
 + Inspired by a Udemy course [Complete C# Unity Developer 2D - Learn to Code Making Games](https://www.udemy.com/unitycourse/)
 
 **Code Smells**:
-+ Dead Code --> das AdventuregameOld Script???
++ Dead Code --> das AdventuregameOld Script???, unused Namespaces.
 + Magical Value
 + Magical String --> einige im AdventureGame Script gefunden (glaub ich zumindest)

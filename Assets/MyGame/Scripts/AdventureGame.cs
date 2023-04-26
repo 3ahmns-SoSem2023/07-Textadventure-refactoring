@@ -32,7 +32,7 @@ public class AdventureGame : MonoBehaviour
     private int statesUntilRescue;
 
     private string notification = "Notification: ";
-    private string info = "Collect.Info";
+    private string info = "Info";
 
 
     State actualState;

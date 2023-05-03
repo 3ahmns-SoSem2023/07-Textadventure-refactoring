@@ -8,6 +8,7 @@ public class AdventureGame : MonoBehaviour
     private const string StateInfoAlarm = "Info.Alarm";
     private const string StateKnitDo = "Knit.Do";
     private const string StateFightAttac = "Fight.Attack";
+    private const string StateCollectDo = "Collect.Do";
 
     //private static readonly System.Random getrandom = new System.Random(123);
 
@@ -143,7 +144,7 @@ public class AdventureGame : MonoBehaviour
 
         if (currentState.name == nextState.name)
         {
-            if (nextState.name == StateKnitDo || nextState.name == StateFightAttac || nextState.name == "Collect.Do")
+            if (nextState.name == StateKnitDo || nextState.name == StateFightAttac || nextState.name == StateCollectDo)
             {
                 wait = false;
                 overrideText = "reset in do|attack";

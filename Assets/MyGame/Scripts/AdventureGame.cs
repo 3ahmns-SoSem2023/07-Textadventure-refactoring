@@ -12,6 +12,7 @@ public class AdventureGame : MonoBehaviour
     private const string StateInfoDone = "Info.Done";
     private const string StateCollectInfo = "Collect.Info";
     private const string StateInfoHuman = "Info.Human";
+    private const string StateInfoAccident = "Info.Accident";
 
     //private static readonly System.Random getrandom = new System.Random(123);
 
@@ -175,7 +176,7 @@ public class AdventureGame : MonoBehaviour
 
         }
 
-        if (currentState.name == "Info.Accident" && nextState.name == "Info.Done")
+        if (currentState.name == StateInfoAccident && nextState.name == StateInfoDone)
         {
             overrideTextComponent = true;
             overrideText = "Magda is a 21 year old woman. She loves salty food and is doing a lot of sports." + "\n" +
